@@ -1,0 +1,11 @@
+main: me.Ravi.Lotr.Main
+name: FactionsUUIDLordOfTheRings
+version: 1.16.5
+author: Ravi
+description: Lord Of The Rings Faction Add-On
+
+commands:
+  sectinfo:
+  secttop:
+  l:
+  war:
