@@ -5,6 +5,7 @@ import org.bukkit.event.HandlerList;
 
 public class WarCreateEvent extends Event
 {
+    private static final HandlerList handlers = new HandlerList();
     private final War war;
     private final LotrFaction declarer;
     private final LotrFaction target;
@@ -17,7 +18,7 @@ public class WarCreateEvent extends Event
     @Override
     public HandlerList getHandlers() 
     {
-        return null;
+        return handlers;
     }
     public LotrFaction getDeclarer()
     {
@@ -26,6 +27,10 @@ public class WarCreateEvent extends Event
     public LotrFaction getTarget()
     {
         return target;
+    }
+    public War getWar()
+    {
+        return war;
     }
     
 }

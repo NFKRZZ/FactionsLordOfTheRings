@@ -45,7 +45,7 @@ public class SectCommand implements CommandExecutor
 				sender.sendMessage("----------Sect Info---------");
 				sender.sendMessage("Sect Name:"+SectManager.getSectFromEnum(lol));
 				sender.sendMessage("Sect Factions: "+FactionManager.getSectFactions(lol).size());
-				sender.sendMessage("Sect Capital:"+sect.CapitalName+" "+sect.getCapital().getBlockX()+", "+sect.getCapital().getBlockY() );
+				sender.sendMessage("Sect Capital:"+sect.CapitalName+" "+sect.getCapital() );
 				sender.sendMessage("Sect Population:");
 			}
 			else if(args[0].equalsIgnoreCase("debug"))

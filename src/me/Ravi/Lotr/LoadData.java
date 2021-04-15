@@ -5,9 +5,9 @@ import net.md_5.bungee.api.ChatColor;
 
 public class LoadData 
 {
-	static String sectFile = "sect.bin";
-	static String lFactionFile = "faction.bin";
-	static String lFPlayerFile = "player.bin";
+	static String sectFile = "sect.json";
+	static String lFactionFile = "faction.json";
+	static String lFPlayerFile = "player.json";
 
 	public static void LoadSect() 
 	{

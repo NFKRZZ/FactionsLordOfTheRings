@@ -4,9 +4,9 @@ import net.md_5.bungee.api.ChatColor;
 
 public class SaveData 
 {
-	static String sectFile = "sect.bin";
-	static String factionFile = "faction.bin";
-	static String fPlayerFile = "player.bin";
+	static String sectFile = "sect.json";
+	static String factionFile = "faction.json";
+	static String fPlayerFile = "player.json";
 	public static void saveSect()
 	{
 		for (LotrSect sect : SectManager.getList())
