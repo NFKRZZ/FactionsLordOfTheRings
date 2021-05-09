@@ -11,6 +11,7 @@ public class LotrFPlayer implements Serializable
     public LotrFPlayer(FPlayer player)
     {
         this.player = player;
+        Utils.Log(player.getClass().toString()+" PLAYER  CLASS");
     }
     public FPlayer getFPlayer()
     {

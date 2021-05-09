@@ -8,7 +8,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.Ravi.Lotr.LotrFaction.LotrSectEnum;
-
+//TODO FINISH DESERIALIZER CODE. IMPLEMENT WARS START ADD COMMANDS IN//
 public class Main extends JavaPlugin
 {
 	public static File pluginDirectory;

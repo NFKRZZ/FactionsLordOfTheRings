@@ -11,7 +11,9 @@ public class LoadData
 
 	public static void LoadSect() 
 	{
-		List<LotrSect> sects =(List<LotrSect>)Utils.Deserialize(sectFile);
+		Utils.Log(ChatColor.GREEN+"LOADING UP SECTS");
+		List<LotrSect> sects =  Utils.DeserializeSect();
+		Utils.Log(ChatColor.GREEN+"LOADED UP SECTS");
 		if(sects==null)
 		{
 			Utils.Log(ChatColor.RED+"Null list loaded from file - sect.bin");
@@ -25,7 +27,7 @@ public class LoadData
 	}
 	public static void LoadFactions() 
 	{
-		List<LotrFaction> factions = (List<LotrFaction>)Utils.Deserialize(lFactionFile);
+		List<LotrFaction> factions = Utils.DeserializeFaction();
 		if(factions==null)
 		{
 			Utils.Log(ChatColor.RED+"Null list loaded from file - faction.bin");
@@ -38,7 +40,7 @@ public class LoadData
 	}
 	public static void loadFPlayer() 	
 	{
-		List<LotrFPlayer> players = (List<LotrFPlayer>)Utils.Deserialize(lFPlayerFile);
+		List<LotrFPlayer> players = Utils.DeserializePlayer();
 		if(players == null)
 		{
 			Utils.Log(ChatColor.RED+"Null list loaded from file - player.bin");
