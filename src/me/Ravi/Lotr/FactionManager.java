@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.massivecraft.factions.Faction;
 
+import org.bukkit.ChatColor;
+
 import me.Ravi.Lotr.LotrFaction.LotrSectEnum;
 
 
@@ -47,6 +49,7 @@ public class FactionManager
 	public static void setList(List<LotrFaction> list)
 	{
 		factionList = list;
+		Utils.Log(ChatColor.AQUA+" list for faction is "+factionList.size());
 	}
 	public static void addFaction(LotrFaction faction)
 	{

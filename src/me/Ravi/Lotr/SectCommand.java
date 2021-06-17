@@ -43,8 +43,11 @@ public class SectCommand implements CommandExecutor
 				LotrSectEnum lol = LotrSectEnum.valueOf(lSect);
 				LotrSect sect = SectManager.getSectFromEnum(lol);
 				sender.sendMessage("----------Sect Info---------");
-				sender.sendMessage("Sect Name:"+SectManager.getSectFromEnum(lol));
+				sender.sendMessage("Sect Name:"+SectManager.getSectFromEnum(lol).toString());
 				sender.sendMessage("Sect Factions: "+FactionManager.getSectFactions(lol).size());
+				sender.sendMessage(FactionManager.getSectFactions(lol).get(0).toString());
+				sender.sendMessage(FactionManager.getSectFactions(lol).get(0).getFaction().toString());
+				sender.sendMessage(FactionManager.getSectFactions(lol).get(0).getFaction().getTag());
 				sender.sendMessage("Sect Capital:"+sect.CapitalName+" "+sect.getCapital() );
 				sender.sendMessage("Sect Population:");
 			}

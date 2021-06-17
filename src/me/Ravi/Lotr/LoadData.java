@@ -34,6 +34,11 @@ public class LoadData
 		}
 		else
 		{
+			for(LotrFaction fac : factions)
+			{
+				fac.setFaction(fac.fName);
+				Utils.Log(ChatColor.BLUE+"Set faction for "+fac.toString()+" faction is "+fac.fName);
+			}
 			Utils.Log(ChatColor.GOLD+"Loaded "+factions.size()+" Factions");
 			FactionManager.setList(factions);
 		}

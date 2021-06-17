@@ -6,16 +6,19 @@ import java.util.List;
 
 
 import com.massivecraft.factions.Faction;
+import com.massivecraft.factions.Factions;
 public class LotrFaction implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-	private Faction faction;
+	private transient Faction faction;
+	public String fName;
 	private Allegiance allegiance;
 	private LotrSectEnum sect;
 	private LotrSect rSect;
 	private List<LotrFPlayer> memberList = new ArrayList<LotrFPlayer>();
 	public LotrFaction(Faction faction,LotrSectEnum sect, Allegiance allegiance)
 	{
+		this.fName = faction.getTag();
 		this.faction = faction;
 		this.sect = sect;
 		this.allegiance = allegiance;
@@ -43,6 +46,10 @@ public class LotrFaction implements Serializable
 	public void removeMember(LotrFPlayer player)
 	{
 		memberList.remove(player);
+	}
+	public void setFaction(String tag)
+	{
+		faction = Factions.getInstance().getFactionById(tag);
 	}
 	public me.Ravi.Lotr.LotrSect getRSect()
 	{

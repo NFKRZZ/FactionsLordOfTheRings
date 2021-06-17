@@ -56,5 +56,9 @@ public class LotrSect implements Serializable
 	{
 		factions.remove(faction);
 	}
+	public void setFaction(String Tag)
+	{
+
+	}
 }
 
