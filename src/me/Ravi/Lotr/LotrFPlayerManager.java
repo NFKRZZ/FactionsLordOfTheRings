@@ -14,6 +14,10 @@ public class LotrFPlayerManager
     public static void add(LotrFPlayer player)
     {
         playerList.add(player);
+    }
+    public static void remove(LotrFPlayer player)
+    {
+        playerList.remove(player);
     }    
     public static LotrFPlayer getPlayer(FPlayer player)
     {

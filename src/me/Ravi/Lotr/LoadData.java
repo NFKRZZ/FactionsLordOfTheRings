@@ -1,6 +1,8 @@
 package me.Ravi.Lotr;
 import java.util.List;
 
+import com.massivecraft.factions.Factions;
+
 import net.md_5.bungee.api.ChatColor;
 
 public class LoadData 
@@ -54,6 +56,19 @@ public class LoadData
 		{
 			Utils.Log(ChatColor.GOLD+"Loaded "+players.size()+" Players");
 			LotrFPlayerManager.setLotrFPlayers(players);
+		}
+	}
+	public static void loadWars()
+	{
+		List<War> wars = Utils.DeserializeWar();
+		if(wars == null)
+		{
+			Utils.Log(ChatColor.RED+"Null list loaded from file - war.json");
+		}
+		else
+		{
+			Utils.Log(ChatColor.GREEN+"Loaded "+wars.size()+" wars");
+			WarManager.warList = wars;
 		}
 	}
 }

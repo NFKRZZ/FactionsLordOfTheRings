@@ -58,5 +58,6 @@ public class FactionManager
 	public static void removeFaction(LotrFaction faction)
 	{
 		factionList.remove(faction);
+		faction.getRSect().removeFaction(faction);
 	}
 }

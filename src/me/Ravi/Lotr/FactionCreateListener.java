@@ -32,6 +32,7 @@ public class FactionCreateListener implements Listener
 	{
 		wow = true;
 		LotrSectEnum sect = null;
+		LotrFaction fac = null;
 		FPlayer player = e.getFPlayer();
 		Player sender = player.getPlayer();
 		Faction faction = e.getFaction();
@@ -41,33 +42,39 @@ public class FactionCreateListener implements Listener
 		response = "Mordor";
 		if(response.equalsIgnoreCase("Gondor"))
 		{
-			FactionManager.addFaction(new LotrFaction(faction, LotrSectEnum.GONDOR,Allegiance.GOOD ));
+			fac = new LotrFaction(faction, LotrSectEnum.GONDOR,Allegiance.GOOD);
+			FactionManager.addFaction(fac);
 			sect = LotrSectEnum.GONDOR;
 		}
 		else if(response.equalsIgnoreCase("Elves"))
 		{
-			FactionManager.addFaction(new LotrFaction(faction,LotrSectEnum.ELVES,Allegiance.GOOD));
+			fac = new LotrFaction(faction,LotrSectEnum.ELVES,Allegiance.GOOD);
+			FactionManager.addFaction(fac);
 			sect = LotrSectEnum.ELVES;
 			 
 		}
 		else if(response.equalsIgnoreCase("Dwarves"))
 		{
-			FactionManager.addFaction(new LotrFaction(faction,LotrSectEnum.DWARVES,Allegiance.GOOD));
+			fac = new LotrFaction(faction,LotrSectEnum.DWARVES,Allegiance.GOOD);
+			FactionManager.addFaction(fac);
 			sect = LotrSectEnum.DWARVES;
 		}
 		else if(response.equalsIgnoreCase("Mordor"))
 		{
-			FactionManager.addFaction(new LotrFaction(faction,LotrSectEnum.MORDOR,Allegiance.EVIL));
+			fac = new LotrFaction(faction,LotrSectEnum.MORDOR,Allegiance.EVIL);
+			FactionManager.addFaction(fac);
 			sect = LotrSectEnum.MORDOR;
 		}
 		else if(response.equalsIgnoreCase("Harad"))
 		{
-			FactionManager.addFaction(new LotrFaction(faction,LotrSectEnum.HARAD,Allegiance.EVIL));
+			fac = new LotrFaction(faction,LotrSectEnum.HARAD,Allegiance.EVIL);
+			FactionManager.addFaction(fac);
 			sect = LotrSectEnum.HARAD;
 		}
 		else if(response.equalsIgnoreCase("Goblins"))
 		{
-			FactionManager.addFaction(new LotrFaction(faction,LotrSectEnum.GOBLINS,Allegiance.EVIL));
+			fac = new LotrFaction(faction,LotrSectEnum.GOBLINS,Allegiance.EVIL);
+			FactionManager.addFaction(fac);
 			sect = LotrSectEnum.GOBLINS;
 		}
 		else 
@@ -77,6 +84,9 @@ public class FactionCreateListener implements Listener
 		}
 		sender.sendMessage(ChatColor.BLUE+"You have joined the "+sect.toString()+" sect");
 		wow = false;
+		LotrFPlayer player2 = LotrFPlayerManager.getPlayer(player);
+		player2.setLotrFaction(fac);
+		
 	}
 	@EventHandler
 	public void AsyncChat(AsyncPlayerChatEvent e)

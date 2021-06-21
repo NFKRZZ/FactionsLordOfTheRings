@@ -7,7 +7,7 @@ import java.util.List;
 import org.bukkit.Location;
 
 import me.Ravi.Lotr.LotrFaction.LotrSectEnum;
-import net.minecraft.server.v1_16_R3.Vector3f;
+
 
 public class LotrSect implements Serializable
 {
@@ -56,9 +56,10 @@ public class LotrSect implements Serializable
 	{
 		factions.remove(faction);
 	}
-	public void setFaction(String Tag)
+	@Override
+	public String toString()
 	{
-
+		return sect.toString();
 	}
 }
 

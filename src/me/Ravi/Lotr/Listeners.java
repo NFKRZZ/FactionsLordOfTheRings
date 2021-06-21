@@ -1,7 +1,10 @@
 package me.Ravi.Lotr;
 
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
+import me.Ravi.Lotr.LotrFaction.LotrSectEnum;
 import net.md_5.bungee.api.ChatColor;
 
 
@@ -34,11 +37,21 @@ public class Listeners implements Listener
         }
         else
         {
-            Utils.Log(ChatColor.RED+"Error in playerJoin Event at Listeners.java");
+           // Utils.Log(ChatColor.RED+"Error in playerJoin Event at Listeners.java");
             return;
         }
         
         LotrFPlayerManager.add(newPlayer);
-
-    }    
+    } 
+    @EventHandler
+    public void applyEffect(PlayerJoinEvent e)
+    {
+        LotrFPlayer p = LotrFPlayerManager.getPlayer(e.getPlayer());
+        LotrFaction f = p.getLotrFaction();
+        LotrSectEnum s = f.getSect();
+        if(s==LotrSectEnum.MORDOR)
+        {
+            e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE,Integer.MAX_VALUE,0));
+        }
+    }
 }

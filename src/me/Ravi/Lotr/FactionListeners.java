@@ -5,9 +5,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 import me.Ravi.Lotr.LotrFaction.Allegiance;
+import net.md_5.bungee.api.ChatColor;
 
 import com.massivecraft.factions.Faction;
 import com.massivecraft.factions.event.FPlayerJoinEvent;
+import com.massivecraft.factions.event.FactionAutoDisbandEvent;
 import com.massivecraft.factions.event.FactionDisbandEvent;
 import com.massivecraft.factions.event.FactionRelationEvent;
 import com.massivecraft.factions.event.FPlayerJoinEvent.PlayerJoinReason;
@@ -34,6 +36,7 @@ public class FactionListeners implements Listener
         else
         {
             lotrFac.AddMember(lotrPlayer);
+            lotrPlayer.setLotrFaction(lotrFac);
         }
     }
     @EventHandler
@@ -53,10 +56,32 @@ public class FactionListeners implements Listener
     @EventHandler
     public void FactionDeleteEvent(FactionDisbandEvent e)
     {
-        Faction faction = e.getFaction();
-        LotrFaction lFaction = FactionManager.getLotrFaction(faction);
-        lFaction.getRSect().removeFaction(lFaction);
-        FactionManager.removeFaction(lFaction);
-        lFaction = null;
+        try
+        {
+            Utils.Log("FACTION DELETE EVENT CALLED");
+            Faction faction = e.getFaction();
+            LotrFaction lFaction = FactionManager.getLotrFaction(faction);
+            FactionManager.removeFaction(lFaction);
+            lFaction = null;
+        }
+        catch(Exception fa)
+        {
+            Utils.Log(ChatColor.RED+"Some Error Happened!");
+            Utils.Log(ChatColor.AQUA+fa.toString());
+        }
+    }
+    @EventHandler
+    public void FactionAutoDisband(FactionAutoDisbandEvent e)
+    {
+        try
+        {
+            LotrFaction fac = FactionManager.getLotrFaction(e.getFaction());
+            FactionManager.removeFaction(fac);
+            fac = null;
+        }
+        catch(Exception j)
+        {
+            Utils.Log(j.toString());
+        }
     }
 }

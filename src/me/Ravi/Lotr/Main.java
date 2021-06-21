@@ -29,10 +29,14 @@ public class Main extends JavaPlugin
 		LoadData.LoadSect();
 		LoadData.LoadFactions();
 		LoadData.loadFPlayer();
+		LoadData.loadWars();
 		new SectManager();
 		new FactionManager();
 		new LotrFPlayerManager();
 		Init();
+		Tasks.WarTask(this);
+		Tasks.PlayerCheck(this);
+		Tasks.AutoSave(this);
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN+"FactionsUUID_LOTR Intiliazed");
 //LOAD UP ALL FACTIONS ON START//LOAD UP ALL FPLAYERS//THEN APPLY ALL ATTRIBUTES TO FACTIONS/PLAYERS//LOAD UP ALL CURRENT WARS//
 	}
@@ -41,6 +45,7 @@ public class Main extends JavaPlugin
 		SaveData.saveSect();
 		SaveData.saveFactions();
 		SaveData.saveFPlayer();
+		SaveData.saveWar();
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN+"FactionsUUID_LOTR say bye bye");
 		this.saveConfig();
 	}

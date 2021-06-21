@@ -1,8 +1,13 @@
 package me.Ravi.Lotr;
 
+import com.massivecraft.factions.FPlayer;
+import com.massivecraft.factions.FPlayers;
+import com.massivecraft.factions.Factions;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import me.Ravi.Lotr.LotrFaction.LotrSectEnum;
 import net.md_5.bungee.api.ChatColor;
@@ -40,13 +45,12 @@ public class SectCommand implements CommandExecutor
 						sender.sendMessage(ChatColor.RED+"False Sect Specified or None Specified AT ALL");
 						return false;
 				}
-				LotrSectEnum lol = LotrSectEnum.valueOf(lSect);
+				LotrSectEnum lol = LotrSectEnum.valueOf(lSect.toUpperCase());
 				LotrSect sect = SectManager.getSectFromEnum(lol);
 				sender.sendMessage("----------Sect Info---------");
 				sender.sendMessage("Sect Name:"+SectManager.getSectFromEnum(lol).toString());
 				sender.sendMessage("Sect Factions: "+FactionManager.getSectFactions(lol).size());
 				sender.sendMessage(FactionManager.getSectFactions(lol).get(0).toString());
-				sender.sendMessage(FactionManager.getSectFactions(lol).get(0).getFaction().toString());
 				sender.sendMessage(FactionManager.getSectFactions(lol).get(0).getFaction().getTag());
 				sender.sendMessage("Sect Capital:"+sect.CapitalName+" "+sect.getCapital() );
 				sender.sendMessage("Sect Population:");
@@ -68,6 +72,52 @@ public class SectCommand implements CommandExecutor
 				{
 					sender.sendMessage(player.getFPlayer().getPlayer().getName());
 				}
+				sender.sendMessage("-------------------------------");
+				for(War war: WarManager.warList)
+				{
+					sender.sendMessage("Attacker: "+war.attacker.toString()+" Defender: "+war.defender.toString()+" "+war.duration+" seconds");
+				}
+			}
+			else if(args[0].equalsIgnoreCase("war"))
+			{
+				String faction;
+				try
+				{
+					faction  = args[1];
+				}
+				catch(Exception e)
+				{
+					if(e instanceof ArrayIndexOutOfBoundsException)
+						sender.sendMessage(ChatColor.RED+"No Faction Specified");
+						return false;
+				}
+				Player player = (Player)sender;
+				LotrFaction Attacker = FactionManager.getLotrFaction(FPlayers.getInstance().getByPlayer(player).getFaction());
+				LotrFaction Defender = null;
+				try
+				{
+					Defender = FactionManager.getLotrFaction(Factions.getInstance().getByTag(faction)); 
+					if(Defender.getFaction() == null)
+					{
+						throw new Exception("Faction doesnt exist");
+					}
+					War war = new War(Attacker,Defender);
+					new WarCreateEvent(war, Attacker, Defender);
+					WarManager.warList.add(war);
+				}
+				catch(Exception e)
+				{
+					if(e.equals("Faction doesnt exist"))
+					{
+						sender.sendMessage(ChatColor.RED+"This Faction doesnt exist!");
+						return false;
+					}
+
+				}
+				sender.sendMessage(ChatColor.BOLD+""+ChatColor.GREEN+Attacker.toString()+" has declared war on "+Defender.toString());
+				
+				
+				
 			}
 		}
 		return false;	

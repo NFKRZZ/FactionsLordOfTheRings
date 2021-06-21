@@ -2,6 +2,8 @@ package me.Ravi.Lotr;
 
 import java.io.Serializable;
 
+import javax.annotation.Nonnull;
+
 import com.massivecraft.factions.FPlayer;
 import com.massivecraft.factions.FPlayers;
 
@@ -13,7 +15,8 @@ public class LotrFPlayer implements Serializable
     private static final long serialVersionUID = 1L;
     private FPlayer player;
     private String playerName;
-    public LotrFPlayer(FPlayer player)
+    private LotrFaction fac;
+    public LotrFPlayer(@Nonnull FPlayer player)
     {
         this.player = player;
         playerName = player.getPlayer().getName();
@@ -23,9 +26,17 @@ public class LotrFPlayer implements Serializable
     {
         return player;
     }
+    public LotrFaction getLotrFaction()
+    {
+        return fac;
+    }
     public void setFPlayer(String name)
     {
         Player reg = (Player)Bukkit.getServer().getOfflinePlayer(name);
         player = FPlayers.getInstance().getByPlayer(reg);
+    }
+    public void setLotrFaction(LotrFaction f)
+    {
+        fac = f;
     }
 }

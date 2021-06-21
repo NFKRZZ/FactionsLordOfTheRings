@@ -22,6 +22,7 @@ public class LotrFaction implements Serializable
 		this.faction = faction;
 		this.sect = sect;
 		this.allegiance = allegiance;
+		
 	}
 	public Faction getFaction()
 	{
@@ -49,11 +50,16 @@ public class LotrFaction implements Serializable
 	}
 	public void setFaction(String tag)
 	{
-		faction = Factions.getInstance().getFactionById(tag);
+		faction = Factions.getInstance().getByTag(tag);
 	}
 	public me.Ravi.Lotr.LotrSect getRSect()
 	{
 		return rSect;
+	}
+	@Override
+	public String toString()
+	{
+		return fName;
 	}
 	enum LotrSectEnum
 	{
