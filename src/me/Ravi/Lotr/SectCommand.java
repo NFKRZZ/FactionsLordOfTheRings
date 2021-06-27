@@ -115,9 +115,15 @@ public class SectCommand implements CommandExecutor
 
 				}
 				sender.sendMessage(ChatColor.BOLD+""+ChatColor.GREEN+Attacker.toString()+" has declared war on "+Defender.toString());
-				
-				
-				
+				//SEND TO ALL FACTIONS INVOLVED
+				for(LotrFPlayer g: Defender.memberList)
+				{
+					g.getFPlayer().getPlayer().sendMessage(Attacker.toString()+" has declared war on your faction");
+				}
+				for(LotrFPlayer l: Attacker.memberList)
+				{
+					l.getFPlayer().getPlayer().sendMessage("Your faction has declared war on "+Defender.toString());
+				}
 			}
 		}
 		return false;	

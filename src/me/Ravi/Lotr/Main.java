@@ -30,6 +30,7 @@ public class Main extends JavaPlugin
 		LoadData.LoadFactions();
 		LoadData.loadFPlayer();
 		LoadData.loadWars();
+		LoadData.loadSettlements();
 		new SectManager();
 		new FactionManager();
 		new LotrFPlayerManager();
@@ -46,6 +47,7 @@ public class Main extends JavaPlugin
 		SaveData.saveFactions();
 		SaveData.saveFPlayer();
 		SaveData.saveWar();
+		SaveData.saveSettlement();
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN+"FactionsUUID_LOTR say bye bye");
 		this.saveConfig();
 	}

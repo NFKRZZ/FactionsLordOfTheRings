@@ -71,4 +71,18 @@ public class LoadData
 			WarManager.warList = wars;
 		}
 	}
+	public static void loadSettlements()
+	{
+		List<Settlement> settlements = Utils.DeserializeSettelments();
+		if(settlements == null)
+		{
+			Utils.Log(ChatColor.RED+"Null list loaded from file - settlements.json");
+		}
+		else
+		{
+			Utils.Log(ChatColor.GREEN+"Loaded"+settlements.size()+" settelements");
+			SettlementManager.settlementList = settlements;
+		}
+
+	}
 }

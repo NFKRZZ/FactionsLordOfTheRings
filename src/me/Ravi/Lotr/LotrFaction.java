@@ -15,7 +15,7 @@ public class LotrFaction implements Serializable
 	private Allegiance allegiance;
 	private LotrSectEnum sect;
 	private LotrSect rSect;
-	private List<LotrFPlayer> memberList = new ArrayList<LotrFPlayer>();
+	public List<LotrFPlayer> memberList = new ArrayList<LotrFPlayer>();
 	public LotrFaction(Faction faction,LotrSectEnum sect, Allegiance allegiance)
 	{
 		this.fName = faction.getTag();

@@ -19,11 +19,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 
+
+
 public class Utils 
 {
     public static void Log(String message)
     {
-        Bukkit.getConsoleSender().sendMessage("[FactionsUUIDLOTR] "+message);
+        Bukkit.getConsoleSender().sendMessage(net.md_5.bungee.api.ChatColor.of("#0033ff")+"["+net.md_5.bungee.api.ChatColor.of("#ffffff")+"FactionsUUIDLOTR"+net.md_5.bungee.api.ChatColor.of("#0033ff")+"] "+ChatColor.RESET+message);
     }
     public static boolean Serialize(Object object,String Directory)
     {
@@ -201,6 +203,35 @@ public class Utils
         catch(Exception e)
         {
              Utils.Log(ChatColor.DARK_RED+"BIG ERROR DESERIALIZING WARS");
+             Utils.Log(e.toString());
+             return null;
+        }
+    }
+    public static List<Settlement> DeserializeSettelments()
+    {
+        try
+        {
+            File file = new File(Main.pluginDirectory.getAbsolutePath(),"settlements.json");
+            if(file.exists()&&file.isFile())
+            {
+               Utils.Log(ChatColor.GREEN+"File Exists");
+            }
+            else if(!file.exists())
+            {
+               file.createNewFile();
+               Utils.Log(ChatColor.RED+"File at "+file.getAbsolutePath()+" Didn't Exist, Created New File");
+               return null;
+            }  
+            GsonBuilder builder = new GsonBuilder().serializeNulls();
+           builder.registerTypeAdapter(Location.class, new LocationTypeAdapter()).setPrettyPrinting();
+           Gson gson = builder.create();
+           BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+           Type type = new TypeToken<List<Settlement>>(){}.getType();
+           return gson.fromJson(bufferedReader, type);
+        }
+        catch(Exception e)
+        {
+            Utils.Log(ChatColor.DARK_RED+"BIG ERROR DESERIALIZING SETTLEMENTS");
              Utils.Log(e.toString());
              return null;
         }

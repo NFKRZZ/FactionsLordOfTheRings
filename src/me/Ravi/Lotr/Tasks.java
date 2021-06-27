@@ -33,7 +33,9 @@ public class Tasks
         {
             public void run() 
             {
+                
                 Utils.Log("Starting Player Check!");
+                return;
                 //ASK JUSTIN FOR HELP FINDING DUPLICATES
                 List<LotrFPlayer> pList = LotrFPlayerManager.getLotrFPlayers();
                 if(pList != null)
@@ -67,6 +69,17 @@ public class Tasks
                 Bukkit.broadcastMessage(ChatColor.BOLD+""+ChatColor.RED+"Saving Data");
             }
         },72000L,72000L);
+    }
+    public static void Settlement(Plugin plugin)
+    {
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable()
+        {
+            public void run()
+            {
+                SettlementManager.collectIncome();
+                
+            }
+        }, 72000L, 72000L);
     }
 
 }

@@ -8,6 +8,7 @@ public class SaveData
 	static String factionFile = "faction.json";
 	static String fPlayerFile = "player.json";
 	static String warFile = "war.json";
+	static String settlementFile = "settlements.json";
 	public static void saveSect()
 	{
 		for (LotrSect sect : SectManager.getList())
@@ -43,5 +44,14 @@ public class SaveData
 		}	
 		Utils.Serialize(WarManager.warList,warFile);
 		Utils.Log(ChatColor.GREEN+"Saved "+WarManager.warList.size()+" Wars");
+	}
+	public static void saveSettlement()
+	{
+		for(Settlement s : SettlementManager.settlementList)
+		{
+			Utils.Log(ChatColor.GREEN+"Saving Settlement: "+s.toString());
+		}
+		Utils.Serialize(SettlementManager.settlementList, settlementFile);
+		Utils.Log(ChatColor.GREEN+"Saved "+SettlementManager.settlementList.size()+" settlements");
 	}
 }
