@@ -1,4 +1,4 @@
-package me.Ravi.Lotr;
+package me.Ravi.Lotr.Managers;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,6 +6,8 @@ import com.massivecraft.factions.Faction;
 
 import org.bukkit.ChatColor;
 
+import me.Ravi.Lotr.LotrFaction;
+import me.Ravi.Lotr.Utils;
 import me.Ravi.Lotr.LotrFaction.LotrSectEnum;
 
 

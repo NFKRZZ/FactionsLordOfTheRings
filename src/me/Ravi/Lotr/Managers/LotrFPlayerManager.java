@@ -1,4 +1,4 @@
-package me.Ravi.Lotr;
+package me.Ravi.Lotr.Managers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,8 @@ import java.util.List;
 import com.massivecraft.factions.FPlayer;
 
 import org.bukkit.entity.Player;
+
+import me.Ravi.Lotr.LotrFPlayer;
 
 
 public class LotrFPlayerManager 

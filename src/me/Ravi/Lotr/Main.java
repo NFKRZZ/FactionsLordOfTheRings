@@ -1,6 +1,6 @@
 package me.Ravi.Lotr;
 import java.io.File;
-
+import me.Ravi.Lotr.Listeners.*;
 import com.mysql.jdbc.Util;
 
 import org.bukkit.Bukkit;
@@ -8,6 +8,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.Ravi.Lotr.LotrFaction.LotrSectEnum;
+import me.Ravi.Lotr.Managers.*;
 //TODO FINISH DESERIALIZER CODE. IMPLEMENT WARS START ADD COMMANDS IN//
 public class Main extends JavaPlugin
 {

@@ -9,9 +9,10 @@ public class Settlement
 {
     List<Citizen> settlerList = new ArrayList<Citizen>();
     String name;
-    int totalIncome;
+    public int totalIncome;
     Location location;
-    double funds;
+    boolean underSiege;
+    public double funds;
     SettlementState state;
     double percentGrowth;
     public void sumIncome()

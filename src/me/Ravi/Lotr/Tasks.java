@@ -1,12 +1,15 @@
 package me.Ravi.Lotr;
 
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
 import net.md_5.bungee.api.ChatColor;
 
+import me.Ravi.Lotr.Managers.*;
 
 public class Tasks 
 {
@@ -25,7 +28,7 @@ public class Tasks
                     }
                 }
             }
-        }, 0L, 20L);
+        }, 20L, 20L);
     }
     public static void PlayerCheck(Plugin plugin)
     {
@@ -35,23 +38,14 @@ public class Tasks
             {
                 
                 Utils.Log("Starting Player Check!");
-                return;
-                //ASK JUSTIN FOR HELP FINDING DUPLICATES
                 List<LotrFPlayer> pList = LotrFPlayerManager.getLotrFPlayers();
+                Set<LotrFPlayer> set = new LinkedHashSet<>();
                 if(pList != null)
                 {
-                    for(int i = pList.size()-1;i>0;i--)
-                    {
-                        for(int j = i-1;j>=0;j--)
-                        {
-                            Utils.Log("1st: "+pList.get(i).getFPlayer().getPlayer().getUniqueId()+" 2nd: "+pList.get(j).getFPlayer().getPlayer().getUniqueId());
-                            if(pList.get(i).getFPlayer().getPlayer().getUniqueId().equals(pList.get(j).getFPlayer().getPlayer().getUniqueId()))
-                            {
-                                LotrFPlayerManager.remove(LotrFPlayerManager.getLotrFPlayers().get(i));
-                                Utils.Log(ChatColor.RED+"Found duplicate player username: "+pList.get(i).toString()+", removing.");
-                            }
-                        }
-                    }
+                   set.addAll(pList);
+                   pList.clear();
+                   pList.addAll(set);
+                   LotrFPlayerManager.setLotrFPlayers(pList);
                 }
             }
         }, 0L, 600L);

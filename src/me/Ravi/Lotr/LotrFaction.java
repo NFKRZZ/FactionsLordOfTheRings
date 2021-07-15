@@ -61,7 +61,7 @@ public class LotrFaction implements Serializable
 	{
 		return fName;
 	}
-	enum LotrSectEnum
+	public enum LotrSectEnum
 	{
 		GONDOR,
 		ELVES,
@@ -71,7 +71,7 @@ public class LotrFaction implements Serializable
 		GOBLINS
 		
 	}
-	enum Allegiance
+	public enum Allegiance
 	{
 		GOOD,
 		NEUTRAL,

@@ -1,8 +1,9 @@
-package me.Ravi.Lotr;
+package me.Ravi.Lotr.Managers;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import me.Ravi.Lotr.LotrSect;
 import me.Ravi.Lotr.LotrFaction.LotrSectEnum;
 
 public class SectManager 

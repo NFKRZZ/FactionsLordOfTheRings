@@ -1,4 +1,4 @@
-package me.Ravi.Lotr;
+package me.Ravi.Lotr.Listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -11,9 +11,13 @@ import com.massivecraft.factions.FPlayer;
 import com.massivecraft.factions.Faction;
 import com.massivecraft.factions.event.FactionCreateEvent;
 
-
+import me.Ravi.Lotr.LotrFPlayer;
+import me.Ravi.Lotr.LotrFaction;
+import me.Ravi.Lotr.Main;
 import me.Ravi.Lotr.LotrFaction.Allegiance;
 import me.Ravi.Lotr.LotrFaction.LotrSectEnum;
+import me.Ravi.Lotr.Managers.FactionManager;
+import me.Ravi.Lotr.Managers.LotrFPlayerManager;
 
 
 

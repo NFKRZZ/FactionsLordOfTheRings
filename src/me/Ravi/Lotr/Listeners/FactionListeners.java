@@ -1,10 +1,16 @@
-package me.Ravi.Lotr;
+package me.Ravi.Lotr.Listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
+import me.Ravi.Lotr.LotrFPlayer;
+import me.Ravi.Lotr.LotrFaction;
+import me.Ravi.Lotr.Main;
+import me.Ravi.Lotr.Utils;
 import me.Ravi.Lotr.LotrFaction.Allegiance;
+import me.Ravi.Lotr.Managers.FactionManager;
+import me.Ravi.Lotr.Managers.LotrFPlayerManager;
 import net.md_5.bungee.api.ChatColor;
 
 import com.massivecraft.factions.Faction;
@@ -12,6 +18,9 @@ import com.massivecraft.factions.event.FPlayerJoinEvent;
 import com.massivecraft.factions.event.FactionAutoDisbandEvent;
 import com.massivecraft.factions.event.FactionDisbandEvent;
 import com.massivecraft.factions.event.FactionRelationEvent;
+import com.massivecraft.factions.event.LandClaimEvent;
+import com.massivecraft.factions.event.LandUnclaimAllEvent;
+import com.massivecraft.factions.event.LandUnclaimEvent;
 import com.massivecraft.factions.event.FPlayerJoinEvent.PlayerJoinReason;
 
 public class FactionListeners implements Listener 
@@ -46,7 +55,7 @@ public class FactionListeners implements Listener
         LotrFaction FactionTarget = FactionManager.getLotrFaction(e.getTargetFaction());
         if(FactionSender.getAllegiance().equals(FactionSender.getAllegiance()) || FactionSender.getAllegiance().equals(Allegiance.NEUTRAL) || FactionTarget.getAllegiance().equals(Allegiance.NEUTRAL) )
         {
-            
+
         }
         else
         {
@@ -83,5 +92,20 @@ public class FactionListeners implements Listener
         {
             Utils.Log(j.toString());
         }
+    }
+    @EventHandler
+    public void FactionClaim(LandClaimEvent e)
+    {
+        
+    }
+    @EventHandler
+    public void FactionUnClaim(LandUnclaimEvent e)
+    {
+
+    }
+    @EventHandler
+    public void FactionUnClaimAll(LandUnclaimAllEvent e)
+    {
+              
     }
 }

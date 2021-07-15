@@ -1,7 +1,10 @@
-package me.Ravi.Lotr;
+package me.Ravi.Lotr.Events;
 
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
+
+import me.Ravi.Lotr.LotrFaction;
+import me.Ravi.Lotr.War;
 
 public class WarCreateEvent extends Event
 {

@@ -12,7 +12,7 @@ import me.Ravi.Lotr.LotrFaction.LotrSectEnum;
 public class LotrSect implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-	LotrSectEnum sect;
+	public LotrSectEnum sect;
 	Location Capital;
 	String CapitalName;
 	boolean isCapitalUnderAttack = false;

@@ -1,11 +1,15 @@
-package me.Ravi.Lotr;
+package me.Ravi.Lotr.Listeners;
 
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import me.Ravi.Lotr.LotrFPlayer;
+import me.Ravi.Lotr.LotrFaction;
+import me.Ravi.Lotr.Main;
 import me.Ravi.Lotr.LotrFaction.LotrSectEnum;
-import net.md_5.bungee.api.ChatColor;
+import me.Ravi.Lotr.Managers.LotrFPlayerManager;
+
 
 
 
