@@ -14,6 +14,7 @@ import com.massivecraft.factions.event.FactionCreateEvent;
 import me.Ravi.Lotr.LotrFPlayer;
 import me.Ravi.Lotr.LotrFaction;
 import me.Ravi.Lotr.Main;
+import me.Ravi.Lotr.Events.LotrFactionCreateEvent;
 import me.Ravi.Lotr.LotrFaction.Allegiance;
 import me.Ravi.Lotr.LotrFaction.LotrSectEnum;
 import me.Ravi.Lotr.Managers.FactionManager;
@@ -49,37 +50,42 @@ public class FactionCreateListener implements Listener
 			fac = new LotrFaction(faction, LotrSectEnum.GONDOR,Allegiance.GOOD);
 			FactionManager.addFaction(fac);
 			sect = LotrSectEnum.GONDOR;
+			new LotrFactionCreateEvent(fac);
 		}
 		else if(response.equalsIgnoreCase("Elves"))
 		{
 			fac = new LotrFaction(faction,LotrSectEnum.ELVES,Allegiance.GOOD);
 			FactionManager.addFaction(fac);
 			sect = LotrSectEnum.ELVES;
-			 
+			new LotrFactionCreateEvent(fac);
 		}
 		else if(response.equalsIgnoreCase("Dwarves"))
 		{
 			fac = new LotrFaction(faction,LotrSectEnum.DWARVES,Allegiance.GOOD);
 			FactionManager.addFaction(fac);
 			sect = LotrSectEnum.DWARVES;
+			new LotrFactionCreateEvent(fac);
 		}
 		else if(response.equalsIgnoreCase("Mordor"))
 		{
 			fac = new LotrFaction(faction,LotrSectEnum.MORDOR,Allegiance.EVIL);
 			FactionManager.addFaction(fac);
 			sect = LotrSectEnum.MORDOR;
+			new LotrFactionCreateEvent(fac);
 		}
 		else if(response.equalsIgnoreCase("Harad"))
 		{
 			fac = new LotrFaction(faction,LotrSectEnum.HARAD,Allegiance.EVIL);
 			FactionManager.addFaction(fac);
 			sect = LotrSectEnum.HARAD;
+			new LotrFactionCreateEvent(fac);
 		}
 		else if(response.equalsIgnoreCase("Goblins"))
 		{
 			fac = new LotrFaction(faction,LotrSectEnum.GOBLINS,Allegiance.EVIL);
 			FactionManager.addFaction(fac);
 			sect = LotrSectEnum.GOBLINS;
+			new LotrFactionCreateEvent(fac);
 		}
 		else 
 		{

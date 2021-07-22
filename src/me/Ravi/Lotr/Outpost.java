@@ -17,4 +17,12 @@ public class Outpost extends Settlement
           super.name = name;
           daysToHoldOut = 8;
      }
+     public void reinforce(int amount)
+     {
+          reinforcements+=amount;
+     }
+     public void decrementDays()
+     {
+          daysToHoldOut--;
+     }
 }
