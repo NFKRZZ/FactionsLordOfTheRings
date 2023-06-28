@@ -3,6 +3,7 @@ package me.Ravi.Lotr.Listeners;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.ChatColor;
 
 import me.Ravi.Lotr.LotrFPlayer;
 import me.Ravi.Lotr.LotrFaction;
@@ -11,7 +12,6 @@ import me.Ravi.Lotr.Utils;
 import me.Ravi.Lotr.LotrFaction.Allegiance;
 import me.Ravi.Lotr.Managers.FactionManager;
 import me.Ravi.Lotr.Managers.LotrFPlayerManager;
-import net.md_5.bungee.api.ChatColor;
 
 import com.massivecraft.factions.Faction;
 import com.massivecraft.factions.event.FPlayerJoinEvent;

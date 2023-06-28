@@ -13,6 +13,10 @@ public class LotrFactionCreateEvent extends Event
     {
         faction = fac;
     }
+    public void cancelEvent()
+    {
+        
+    }
     @Override
     public HandlerList getHandlers() 
     {

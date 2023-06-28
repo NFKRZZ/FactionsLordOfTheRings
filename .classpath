@@ -8,6 +8,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/winga/Documents/Minecraft Plugins/Factions.jar"/>
 	<classpathentry kind="lib" path="C:/Users/winga/Documents/Minecraft Plugins/EclipseMinecraft/GSON/gson/gson/target/gson-2.8.7-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="C:/Users/winga/Downloads/spigot-1.17.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/winga/Downloads/spigot-api-1.20.1-R0.1-20230626.214335-16.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
